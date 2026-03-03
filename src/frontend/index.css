@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ─────────────────────────────────────────────── */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/assets/fonts/MonaSans[wdth,wght].woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Ocean-themed palette */
+    /* Deep ocean teal + coral accent */
+    --background: 0.97 0.006 210;
+    --foreground: 0.14 0.03 230;
+
+    --card: 0.99 0 0;
+    --card-foreground: 0.14 0.03 230;
+
+    --popover: 0.99 0 0;
+    --popover-foreground: 0.14 0.03 230;
+
+    /* Deep teal primary */
+    --primary: 0.38 0.11 215;
+    --primary-foreground: 0.99 0 0;
+
+    /* Aqua secondary */
+    --secondary: 0.88 0.05 195;
+    --secondary-foreground: 0.22 0.06 220;
+
+    --muted: 0.93 0.02 210;
+    --muted-foreground: 0.5 0.04 220;
+
+    /* Coral accent */
+    --accent: 0.94 0.04 25;
+    --accent-foreground: 0.22 0.06 220;
+
+    --destructive: 0.57 0.24 27;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 0.88 0.03 210;
+    --input: 0.88 0.03 210;
+    --ring: 0.38 0.11 215;
+
+    /* Status colors */
+    --status-pending: 0.78 0.17 75;
+    --status-confirmed: 0.55 0.16 230;
+    --status-delivery: 0.72 0.19 50;
+    --status-delivered: 0.6 0.15 145;
+    --status-cancelled: 0.57 0.24 27;
+
+    /* Ocean custom */
+    --ocean-deep: 0.22 0.09 220;
+    --ocean-mid: 0.38 0.11 215;
+    --ocean-light: 0.62 0.12 200;
+    --ocean-aqua: 0.75 0.12 190;
+    --coral: 0.66 0.22 30;
+    --coral-light: 0.85 0.12 30;
+
+    --chart-1: 0.38 0.11 215;
+    --chart-2: 0.62 0.12 200;
+    --chart-3: 0.66 0.22 30;
+    --chart-4: 0.6 0.15 145;
+    --chart-5: 0.78 0.17 75;
+
+    --sidebar: 0.18 0.06 225;
+    --sidebar-foreground: 0.9 0.02 205;
+    --sidebar-primary: 0.75 0.12 190;
+    --sidebar-primary-foreground: 0.14 0.04 225;
+    --sidebar-accent: 0.28 0.07 220;
+    --sidebar-accent-foreground: 0.9 0.02 205;
+    --sidebar-border: 0.3 0.07 220;
+    --sidebar-ring: 0.62 0.12 200;
+  }
+
+  .dark {
+    --background: 0.12 0.05 225;
+    --foreground: 0.95 0.01 200;
+    --card: 0.17 0.06 225;
+    --card-foreground: 0.95 0.01 200;
+    --popover: 0.2 0.07 225;
+    --popover-foreground: 0.95 0.01 200;
+    --primary: 0.72 0.14 195;
+    --primary-foreground: 0.12 0.05 225;
+    --secondary: 0.25 0.07 225;
+    --secondary-foreground: 0.9 0.02 205;
+    --muted: 0.22 0.06 225;
+    --muted-foreground: 0.65 0.06 210;
+    --accent: 0.3 0.07 225;
+    --accent-foreground: 0.9 0.02 205;
+    --destructive: 0.7 0.19 22;
+    --destructive-foreground: 0.17 0.06 225;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.62 0.12 200;
+    --chart-1: 0.72 0.14 195;
+    --chart-2: 0.62 0.12 200;
+    --chart-3: 0.66 0.22 30;
+    --chart-4: 0.6 0.15 145;
+    --chart-5: 0.78 0.17 75;
+    --sidebar: 0.14 0.06 225;
+    --sidebar-foreground: 0.9 0.02 205;
+    --sidebar-primary: 0.72 0.14 195;
+    --sidebar-primary-foreground: 0.12 0.05 225;
+    --sidebar-accent: 0.22 0.07 225;
+    --sidebar-accent-foreground: 0.9 0.02 205;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.62 0.12 200;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Cabinet Grotesk", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-ocean-deep { color: oklch(var(--ocean-deep)); }
+  .text-ocean-mid { color: oklch(var(--ocean-mid)); }
+  .text-ocean-light { color: oklch(var(--ocean-light)); }
+  .text-ocean-aqua { color: oklch(var(--ocean-aqua)); }
+  .text-coral { color: oklch(var(--coral)); }
+  .bg-ocean-deep { background-color: oklch(var(--ocean-deep)); }
+  .bg-ocean-mid { background-color: oklch(var(--ocean-mid)); }
+  .bg-ocean-light { background-color: oklch(var(--ocean-light)); }
+  .bg-ocean-aqua { background-color: oklch(var(--ocean-aqua)); }
+  .bg-coral { background-color: oklch(var(--coral)); }
+  .bg-coral-light { background-color: oklch(var(--coral-light)); }
+
+  .status-pending { background-color: oklch(0.94 0.09 80); color: oklch(0.42 0.14 75); }
+  .status-confirmed { background-color: oklch(0.9 0.07 235); color: oklch(0.35 0.15 230); }
+  .status-outForDelivery { background-color: oklch(0.94 0.09 55); color: oklch(0.45 0.16 50); }
+  .status-delivered { background-color: oklch(0.9 0.08 150); color: oklch(0.38 0.13 148); }
+  .status-cancelled { background-color: oklch(0.94 0.06 25); color: oklch(0.5 0.22 27); }
+
+  .wave-divider {
+    position: relative;
+  }
+  .wave-divider::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-color: oklch(var(--background));
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+}
